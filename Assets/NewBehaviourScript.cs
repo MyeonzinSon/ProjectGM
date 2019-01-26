@@ -8,11 +8,13 @@ public class NewBehaviourScript : MonoBehaviour
     public float jumpForce = 100;
     bool isOnGround;
     Rigidbody2D rb;
+    Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         isOnGround = false;
         rb = gameObject.GetComponent<Rigidbody2D>();
+        anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -21,13 +23,21 @@ public class NewBehaviourScript : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.position = transform.position + new Vector3(-0.1f * speed, 0, 0);
+            anim.SetBool("iswalking", true);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
             transform.position = transform.position + new Vector3(0.1f * speed, 0, 0);
-
+            anim.SetBool("iswalking", true);
+        }
+        else
+        {
+            anim.SetBool("iswalking", false);
+        }
         if (Input.GetKey(KeyCode.UpArrow) && isOnGround)
         {
             isOnGround = false;
+            anim.SetBool("isJumping", true);
             rb.AddForce(new Vector2(0,jumpForce));
             //transform.position = transform.position + new Vector3(0, 0.1f * speed, 0);
         }
@@ -36,6 +46,7 @@ public class NewBehaviourScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isOnGround = true;
+        anim.SetBool("isJumping", false);
     }
 }  
 

@@ -18,6 +18,8 @@ public class Item : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        var hungrySlider = FindObjectOfType<HungrySliderController>();
+        hungrySlider.hungry += 30;
         Destroy(gameObject);
     }
 }
