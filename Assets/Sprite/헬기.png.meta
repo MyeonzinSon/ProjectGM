@@ -1,8 +1,7 @@
 fileFormatVersion: 2
-guid: 2c55347b38a129a48a24048b6ac23c20
+guid: 01260b54eeb6a6740b1cebb672d0b9d6
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: icon_health_0
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -41,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,44 +69,13 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: icon_health_0
-      rect:
-        serializedVersion: 2
-        x: 340
-        y: 380
-        width: 570
-        height: 490
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4ff7b8df25a0cc94f9fdd0a4374db03d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: fbb0cb98587a34e41abe9df022a6855c
+    spriteID: 5d394ae0f9adbff4db46fc46e4c91d52
     vertices: []
     indices: 
     edges: []
