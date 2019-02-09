@@ -13,6 +13,5 @@ public class obj_player_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ()
     }
 }
