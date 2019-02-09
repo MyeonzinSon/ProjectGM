@@ -9,6 +9,8 @@ public class NewBehaviourScript : MonoBehaviour
     bool isOnGround;
     Rigidbody2D rb;
     Animator anim;
+    internal static Vector3 position;
+
     // Start is called before the first frame update
     void Start()
     {
