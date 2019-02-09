@@ -668,7 +668,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 688927778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: -2, z: 0}
+  m_LocalPosition: {x: -5, y: -2, z: 0.73}
   m_LocalScale: {x: 1, y: 1, z: 1.4811}
   m_Children:
   - {fileID: 377171479}
@@ -971,6 +971,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hungry: 0
+  hungryDecAmount: 4
+  hungryDecTime: 10
   maxHungry: 100
 --- !u!114 &1343216572
 MonoBehaviour:
@@ -2226,6 +2228,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   temperature: 0
+  temperatureDecAmount: 2
+  temperatureDecTime: 10
   maxtemperature: 100
 --- !u!114 &2138402223
 MonoBehaviour:
