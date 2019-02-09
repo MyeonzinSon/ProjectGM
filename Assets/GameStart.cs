@@ -18,7 +18,7 @@ public class GameStart : MonoBehaviour
         timer += Time.deltaTime;
         if(timer > 6.6f)
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("gameplayscreen");
         }
     }
 }

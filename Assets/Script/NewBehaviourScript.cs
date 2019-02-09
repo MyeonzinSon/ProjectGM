@@ -6,6 +6,7 @@ public class NewBehaviourScript : MonoBehaviour
 {
     public float speed = 1;
     public float jumpForce = 100;
+    public int inventory = 0;
     bool isOnGround;
     Rigidbody2D rb;
     Animator anim;
