@@ -13,11 +13,15 @@ public class item2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var hungrySlider = FindObjectOfType<HungrySliderController>();
-        hungrySlider.hungry += -30;
-        var temperatureSlider = FindObjectOfType<TemperatureSliderController>();
-        temperatureSlider.temperature += 30;
-        Destroy(gameObject);
+    
+    }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        var hungrySlider = FindObjectOfType<HungrySliderController>();
+        hungrySlider.hungry += 30;
+        var temperatureSlider = FindObjectOfType<TemperatureSliderController>();
+        temperatureSlider.temperature += -30;
+        Destroy(gameObject);
     }
 }
