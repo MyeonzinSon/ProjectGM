@@ -9,6 +9,8 @@ public class NewBehaviourScript : MonoBehaviour
     bool isOnGround;
     Rigidbody2D rb;
     Animator anim;
+    internal static Vector3 position;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,11 +26,14 @@ public class NewBehaviourScript : MonoBehaviour
         {
             transform.position = transform.position + new Vector3(-0.1f * speed, 0, 0);
             anim.SetBool("iswalking", true);
+
+            transform.localScale = new Vector3(-1, 1, 1);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.position = transform.position + new Vector3(0.1f * speed, 0, 0);
             anim.SetBool("iswalking", true);
+            transform.localScale = new Vector3(1, 1, 1);
         }
         else
         {
@@ -41,6 +46,7 @@ public class NewBehaviourScript : MonoBehaviour
             rb.AddForce(new Vector2(0,jumpForce));
             //transform.position = transform.position + new Vector3(0, 0.1f * speed, 0);
         }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
