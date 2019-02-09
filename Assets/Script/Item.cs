@@ -20,6 +20,8 @@ public class Item : MonoBehaviour
     {
         var hungrySlider = FindObjectOfType<HungrySliderController>();
         hungrySlider.hungry += 30;
+        var temperatureSlider = FindObjectOfType<TemperatureSliderController>();
+        temperatureSlider.temperature += -30;
         Destroy(gameObject);
     }
 }
