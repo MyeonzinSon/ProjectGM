@@ -64,7 +64,9 @@ public class Player : MonoBehaviour
     }
     void SetCameraBackgroundPosition(){
         cameraGO.transform.position = new Vector3(transform.position.x, cameraGO.transform.position.y, cameraGO.transform.position.z);
-        background.transform.position = new Vector3(transform.position.x, background.transform.position.y, background.transform.position.z);
+
+        var offset = new Vector3(6 * ((transform.position.x + 10) / 400) - 3, 0, 0);
+        background.transform.position = new Vector3(transform.position.x, background.transform.position.y, background.transform.position.z) - offset;
     }
 
 }  
