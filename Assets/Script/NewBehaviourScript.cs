@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    public float speed = 1;
-    public float jumpForce = 100;
+    public float speed = 4;
+    public float jumpForce = 150;
     public int inventory = 0;
     bool isOnGround;
     Rigidbody2D rb;
