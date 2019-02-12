@@ -4,39 +4,34 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HungrySliderController : MonoBehaviour
-{
-    public int hungry = 0;
+{   
     public int hungryDecAmount = 4;
     public float hungryDecTime = 10;
-    float timer;
-    public int maxHungry = 100;
+    float hungryTimer;
     Slider slider;
-    HpSlider hp;
 
     // Start is called before the first frame update
     void Start()
     {
         slider = gameObject.GetComponent<Slider>();
-        hp = FindObjectOfType<HpSlider>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        slider.value = (float)hungry / maxHungry;
-
-        timer = timer + Time.deltaTime;
-        if(timer >= hungryDecTime)
+        slider.value = PlayerStats.GetHungryRatio();
+        hungryTimer += Time.deltaTime;
+        if(hungryTimer >= hungryDecTime)
         {
-            if (hungry > 0)
+            if (PlayerStats.hungry > 0)
             {
-                hungry = hungry - hungryDecAmount;
+                PlayerStats.hungry -= hungryDecAmount;
             }
             else
             {
-                hp.HP -= 1;
+                PlayerStats.hp -= 1;
             }
-            timer = timer - hungryDecTime;
+            hungryTimer -= hungryDecTime;
         }
     }
 }

@@ -5,39 +5,32 @@ using UnityEngine.UI;
 
 public class TemperatureSliderController : MonoBehaviour
 {
-    public int temperature = 0;
     public int temperatureDecAmount = 2;
     public float temperatureDecTime = 10;
     float timer;
-    public int maxtemperature = 100;
     Slider slider;
-    HpSlider hp;
-
     // Start is called before the first frame update
     void Start()
     {
         slider = gameObject.GetComponent<Slider>();
-        hp = FindObjectOfType<HpSlider>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        slider.value = (float)temperature / maxtemperature;
-
-        timer = timer + Time.deltaTime;
+        slider.value = PlayerStats.GetTemperatureRatio();
+        timer += Time.deltaTime;
         if(timer >= temperatureDecTime)
         {
-            if (temperature > 0)
+            if (PlayerStats.temperature > 0)
             {
-                temperature = temperature - temperatureDecAmount;
+                PlayerStats.temperature -= temperatureDecAmount;
             }
             else
             {
-                hp.HP -= 1;
+                PlayerStats.hp -= 1;
             }
-            temperature = temperature - temperatureDecAmount;
-            timer = timer - temperatureDecTime;
+            timer -= temperatureDecTime;
         }
     }
 }

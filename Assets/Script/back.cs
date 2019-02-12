@@ -18,8 +18,8 @@ public class item3 : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       var player = FindObjectOfType<NewBehaviourScript>();
-      player.inventory += 1;
+       var player = FindObjectOfType<Player>();
+       player.inventory += 1;
        Destroy(gameObject);
     }
 }

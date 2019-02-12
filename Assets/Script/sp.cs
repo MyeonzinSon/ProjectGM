@@ -9,7 +9,7 @@ public class sp : MonoBehaviour
 
     void Start()
     {
-        player = FindObjectOfType<NewBehaviourScript>().gameObject;    
+        player = FindObjectOfType<Player>().gameObject;    
     }
 
     // Update is called once per frame

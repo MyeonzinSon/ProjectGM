@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class HpSlider : MonoBehaviour
 {
-    public int HP = 0;
-    public int MaxHP = 5;
     Slider slider;
     public Image heart1, heart2, heart3, heart4, heart5;
 
@@ -28,7 +26,7 @@ public class HpSlider : MonoBehaviour
         color = new Color(1,0,0);
         */
         heart5.gameObject.SetActive(false);
-        if (HP == 5)
+        if (PlayerStats.hp == 5)
         {
             heart5.gameObject.SetActive(true);
             heart4.gameObject.SetActive(true);
@@ -36,7 +34,7 @@ public class HpSlider : MonoBehaviour
             heart2.gameObject.SetActive(true);
             heart1.gameObject.SetActive(true);
         }
-        else if (HP == 4)
+        else if (PlayerStats.hp == 4)
         {
             heart5.gameObject.SetActive(false);
             heart4.gameObject.SetActive(true);
@@ -44,7 +42,7 @@ public class HpSlider : MonoBehaviour
             heart2.gameObject.SetActive(true);
             heart1.gameObject.SetActive(true);
         }
-        else if (HP == 3)
+        else if (PlayerStats.hp == 3)
         {
             heart5.gameObject.SetActive(false);
             heart4.gameObject.SetActive(false);
@@ -52,7 +50,7 @@ public class HpSlider : MonoBehaviour
             heart2.gameObject.SetActive(true);
             heart1.gameObject.SetActive(true);
         }
-        else if (HP == 2)
+        else if (PlayerStats.hp == 2)
         {
             heart5.gameObject.SetActive(false);
             heart4.gameObject.SetActive(false);
@@ -60,7 +58,7 @@ public class HpSlider : MonoBehaviour
             heart2.gameObject.SetActive(true);
             heart1.gameObject.SetActive(true);
         }
-        else if (HP == 1)
+        else if (PlayerStats.hp == 1)
         {
             heart5.gameObject.SetActive(false);
             heart4.gameObject.SetActive(false);
@@ -68,7 +66,7 @@ public class HpSlider : MonoBehaviour
             heart2.gameObject.SetActive(false);
             heart1.gameObject.SetActive(true);
         }
-        else if (HP == 0)
+        else if (PlayerStats.hp == 0)
         {
             heart5.gameObject.SetActive(false);
             heart4.gameObject.SetActive(false);

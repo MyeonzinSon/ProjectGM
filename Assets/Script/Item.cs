@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    public int hungryChange;
+    public int temperatureChange;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +20,11 @@ public class Item : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        var hungrySlider = FindObjectOfType<HungrySliderController>();
-        hungrySlider.hungry += 30;
-        var temperatureSlider = FindObjectOfType<TemperatureSliderController>();
-        temperatureSlider.temperature += -30;
-        Destroy(gameObject);
+        var player = collision.gameObject.GetComponent<Player>();
+        if (player != null){
+            PlayerStats.AddHungry(hungryChange);
+            PlayerStats.AddTemperature(temperatureChange);
+            Destroy(gameObject);
+        }
     }
 }
