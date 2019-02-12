@@ -60,9 +60,11 @@ public class PlayerStats{
             var newItem = new Inventory(item, 1);
             inventories.Add(newItem);
         }
+        
+        CheckComposingItem();
         InventoryUI.UpdateUI();
     }
-    void CheckComposingItem(){
+    static void CheckComposingItem(){
         Inventory egg = null, wheat = null;
         foreach (var inventory in inventories){
             if (inventory.type == ItemType.Egg){
