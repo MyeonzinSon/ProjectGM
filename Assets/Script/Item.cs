@@ -2,8 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ItemType {
+    Eatable,
+    Wheat, Egg,
+    Key, Gasoline, Tail, Pincer
+
+}
 public class Item : MonoBehaviour
 {
+    public ItemType type = ItemType.Eatable;
     public int hungryChange;
     public int temperatureChange;
     // Start is called before the first frame update
@@ -22,9 +29,17 @@ public class Item : MonoBehaviour
     {
         var player = collision.gameObject.GetComponent<Player>();
         if (player != null){
-            PlayerStats.AddHungry(hungryChange);
-            PlayerStats.AddTemperature(temperatureChange);
-            Destroy(gameObject);
+            if (type == ItemType.Eatable){
+                PlayerStats.AddHungry(hungryChange);
+                PlayerStats.AddTemperature(temperatureChange);
+                Destroy(gameObject);
+            }
+            else{
+                
+            }
         }
+    }
+    public Sprite GetSprite(){
+        return GetComponent<SpriteRenderer>().sprite;
     }
 }
