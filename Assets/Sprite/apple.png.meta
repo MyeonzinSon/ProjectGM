@@ -121,8 +121,8 @@ TextureImporter:
       name: apple_0
       rect:
         serializedVersion: 2
-        x: 345
-        y: 315
+        x: 182
+        y: 120
         width: 780
         height: 930
       alignment: 0
@@ -132,7 +132,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a4e58d16332dd54a9091bd0edb50fc8
+      spriteID: 9b801b07019640a44a5363e24d9ba805
       vertices: []
       indices: 
       edges: []

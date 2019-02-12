@@ -121,8 +121,8 @@ TextureImporter:
       name: meat_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 32
+        x: 2
+        y: 10
         width: 55
         height: 29
       alignment: 0
@@ -132,7 +132,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 545e322c0b8c24f4ea2b3e60576bfa56
+      spriteID: 3992d4fe48e480b4390f7330bbfe26f4
       vertices: []
       indices: 
       edges: []

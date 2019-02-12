@@ -48,14 +48,34 @@ public class PlayerStats{
             }
         }
     }
-    public static void AddInventory(Item input){
-        foreach (var item in inventories){
-            if (item.type == input.type){
-                item.num++;
-                return;
+    public static void AddInventory(Item item){
+        bool notFound = true;
+        foreach (var inventory in inventories){
+            if (inventory.type == item.type){
+                inventory.num++;
+                notFound = false;
             }
         }
-        var newItem = new Inventory(input, 1);
-        inventories.Add(newItem);
+        if (notFound){
+            var newItem = new Inventory(item, 1);
+            inventories.Add(newItem);
+        }
+    }
+    void CheckComposingItem(){
+        Inventory egg = null, wheat = null;
+        foreach (var inventory in inventories){
+            if (inventory.type == ItemType.Egg){
+                egg = inventory;
+            }
+            if (inventory.type == ItemType.Wheat){
+                wheat = inventory;
+            }
+        }
+        if ((egg != null && wheat != null) && (egg.num >= 2 && wheat.num >= 2)){
+            egg.num -= 2;
+            wheat.num -= 2;
+            AddHungry(50);
+            AddTemperature(50);
+        }
     }
 }

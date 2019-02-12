@@ -35,7 +35,8 @@ public class Item : MonoBehaviour
                 Destroy(gameObject);
             }
             else{
-                
+                PlayerStats.AddInventory(this);
+                Destroy(gameObject);
             }
         }
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class House : MonoBehaviour
 {
     bool isPlayerEntered;
@@ -10,13 +11,15 @@ public class House : MonoBehaviour
     public GameObject floor1;
     public GameObject floor2;
     public Sprite spriteInit, spriteEntered, spriteExited;
+    public Item[] items;
     SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
     void Start()
     {
         area = GetComponent<CapsuleCollider2D>();
         door = GetComponent<BoxCollider2D>();
-        
+        items = GetComponentsInChildren<Item>();
+
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = spriteInit;
         isPlayerEntered = false;
@@ -24,10 +27,6 @@ public class House : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
     void OnTriggerEnter2D(Collider2D other){
         var player = other.GetComponent<Player>();
         if (player != null && !isPlayerEntered){
@@ -49,11 +48,21 @@ public class House : MonoBehaviour
         floor2.SetActive(false);
         area.enabled = false;
         door.enabled = true;
+        foreach (var item in items){
+            if (item != null){
+                item.gameObject.SetActive(false);
+            }
+        }
     }
     void PlayerInside(){
         floor1.SetActive(true);
         floor2.SetActive(true);
         area.enabled = true;
         door.enabled = false;
+        foreach (var item in items){
+            if (item != null){
+                item.gameObject.SetActive(true);
+            }
+        }
     }
 }
