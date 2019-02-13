@@ -7,7 +7,7 @@ public class TemperatureSliderController : MonoBehaviour
 {
     public int temperatureDecAmount = 2;
     public float temperatureDecTime = 10;
-    float timer;
+    float temperatureTimer;
     Slider slider;
     // Start is called before the first frame update
     void Start()
@@ -19,8 +19,12 @@ public class TemperatureSliderController : MonoBehaviour
     void Update()
     {
         slider.value = PlayerStats.GetTemperatureRatio();
-        timer += Time.deltaTime;
-        if(timer >= temperatureDecTime)
+
+        if(PlayerStats.canMove){
+            temperatureTimer += Time.deltaTime;
+        }
+
+        if(temperatureTimer >= temperatureDecTime)
         {
             if (PlayerStats.temperature > 0)
             {
@@ -30,7 +34,7 @@ public class TemperatureSliderController : MonoBehaviour
             {
                 PlayerStats.hp -= 1;
             }
-            timer -= temperatureDecTime;
+            temperatureTimer -= temperatureDecTime;
         }
     }
 }

@@ -20,7 +20,11 @@ public class HungrySliderController : MonoBehaviour
     void Update()
     {
         slider.value = PlayerStats.GetHungryRatio();
-        hungryTimer += Time.deltaTime;
+
+        if(PlayerStats.canMove){
+            hungryTimer += Time.deltaTime;
+        }
+        
         if(hungryTimer >= hungryDecTime)
         {
             if (PlayerStats.hungry > 0)
