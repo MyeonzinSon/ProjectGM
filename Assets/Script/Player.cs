@@ -41,6 +41,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!PlayerStats.canMove){
+            Destroy(gameObject);
+        }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.position = transform.position + Time.deltaTime * speed * Vector3.left;

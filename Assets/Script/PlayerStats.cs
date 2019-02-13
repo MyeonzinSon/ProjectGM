@@ -13,6 +13,8 @@ public class Inventory{
     }
 }
 public class PlayerStats{
+    public static bool canMove;
+    public static bool canRideHelicopter;
     public static bool isInHouse;
     public static bool isOnGround;
     public static bool isWalking;
@@ -24,6 +26,8 @@ public class PlayerStats{
     static int maxHP = 5;
     public static List<Inventory> inventories;
     public static void Initialize(){
+        canMove = true;
+        canRideHelicopter = false;
         hungry = maxHungry;
         temperature = maxTemperature;
         hp = maxHP;
@@ -65,6 +69,15 @@ public class PlayerStats{
 
         CheckComposingItem();
         InventoryUI.UpdateUI();
+    }
+    public static bool CheckAndUseItem(ItemType type){
+        foreach (var inventory in inventories){
+            if (inventory.type == type){
+                inventory.num--;
+                return true;
+            }
+        }
+        return false;
     }
     static void CheckComposingItem(){
         Inventory egg = null, wheat = null;
