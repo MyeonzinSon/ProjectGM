@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
         {
             isWalking = false;
         }
-        
+
         if (Input.GetKey(KeyCode.UpArrow) && isOnGround)
         {
             isOnGround = false;
@@ -73,11 +73,18 @@ public class Player : MonoBehaviour
         isOnGround = true;
     }
     void SetCameraBackgroundPosition(){
-        cameraGO.transform.position = new Vector3(transform.position.x, cameraGO.transform.position.y, cameraGO.transform.position.z);
+        var cameraX = transform.position.x;
+        if (cameraX < -10){
+            cameraX = -10;
+        }
+        else if (cameraX > 400){
+            cameraX = 400;
+        }
+        cameraGO.transform.position = new Vector3(cameraX, cameraGO.transform.position.y, cameraGO.transform.position.z);
+    
 
-        var offset = new Vector3(6 * ((transform.position.x + 10) / 400) - 3, 0, 0);
-        background.transform.position = new Vector3(transform.position.x, background.transform.position.y, background.transform.position.z) - offset;
+        var offset = new Vector3(6 * ((cameraGO.transform.position.x + 10) / 400) - 3, 0, 0);
+        background.transform.position = new Vector3(cameraGO.transform.position.x, background.transform.position.y, background.transform.position.z) - offset;
     }
-
 }  
 

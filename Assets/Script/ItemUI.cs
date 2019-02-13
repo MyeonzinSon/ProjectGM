@@ -8,7 +8,7 @@ public class ItemUI : MonoBehaviour
 {
     Image image;
     Text numText;
-    void Start(){
+    void Awake(){
         image = GetComponent<Image>();
         image.sprite = null;
 
