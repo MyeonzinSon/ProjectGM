@@ -30,6 +30,7 @@ public class Item : MonoBehaviour
         var player = collision.gameObject.GetComponent<Player>();
         if (player != null){
             if (type == ItemType.Eatable){
+                SFX.PlayEat();
                 PlayerStats.AddHungry(hungryChange);
                 PlayerStats.AddTemperature(temperatureChange);
                 Destroy(gameObject);

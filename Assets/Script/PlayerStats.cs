@@ -13,7 +13,9 @@ public class Inventory{
     }
 }
 public class PlayerStats{
-
+    public static bool isInHouse;
+    public static bool isOnGround;
+    public static bool isWalking;
     public static int hungry;
     public static int temperature;
     public static int hp;
@@ -60,7 +62,7 @@ public class PlayerStats{
             var newItem = new Inventory(item, 1);
             inventories.Add(newItem);
         }
-        
+
         CheckComposingItem();
         InventoryUI.UpdateUI();
     }
@@ -79,6 +81,7 @@ public class PlayerStats{
             wheat.num -= 2;
             AddHungry(50);
             AddTemperature(50);
+            SFX.PlayEat();
         }
     }
 }

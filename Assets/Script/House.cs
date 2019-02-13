@@ -44,6 +44,7 @@ public class House : MonoBehaviour
         }
     }
     void PlayerOutside(){
+        PlayerStats.isInHouse = false;
         floor1.SetActive(false);
         floor2.SetActive(false);
         area.enabled = false;
@@ -55,6 +56,7 @@ public class House : MonoBehaviour
         }
     }
     void PlayerInside(){
+        PlayerStats.isInHouse = true;
         floor1.SetActive(true);
         floor2.SetActive(true);
         area.enabled = true;

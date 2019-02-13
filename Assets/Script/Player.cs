@@ -7,7 +7,19 @@ public class Player : MonoBehaviour
     public float speed = 4;
     public float jumpForce = 150;
     public int inventory = 0;
-    bool isOnGround;
+    bool isOnGround {
+        get { return PlayerStats.isOnGround; }
+        set {
+            anim.SetBool("isJumping", !value);
+            PlayerStats.isOnGround = value; }
+    }
+    bool isWalking {
+        get { return PlayerStats.isWalking; }
+        set {
+            anim.SetBool("iswalking", value);
+            PlayerStats.isWalking = value;
+        }
+    }
     Rigidbody2D rb;
     Animator anim;
     GameObject cameraGO;
@@ -17,12 +29,12 @@ public class Player : MonoBehaviour
     void Awake()
     {
         PlayerStats.Initialize();
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
     void Start()
     {
         isOnGround = false;
-        rb = gameObject.GetComponent<Rigidbody2D>();
-        anim = gameObject.GetComponent<Animator>();
         cameraGO = FindObjectOfType<Camera>().gameObject;
     }
 
@@ -32,26 +44,25 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.position = transform.position + Time.deltaTime * speed * Vector3.left;
-            anim.SetBool("iswalking", true);
+            isWalking = true;
 
             transform.localScale = new Vector3(-1, 1, 1);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.position = transform.position + Time.deltaTime * speed * Vector3.right;
-            anim.SetBool("iswalking", true);
+            isWalking = true;
             transform.localScale = new Vector3(1, 1, 1);
         }
         else
         {
-            anim.SetBool("iswalking", false);
+            isWalking = false;
         }
+        
         if (Input.GetKey(KeyCode.UpArrow) && isOnGround)
         {
             isOnGround = false;
-            anim.SetBool("isJumping", true);
             rb.AddForce(new Vector2(0,jumpForce));
-            //transform.position = transform.position + new Vector3(0, 0.1f * speed, 0);
         }
 
         SetCameraBackgroundPosition();
@@ -60,7 +71,6 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isOnGround = true;
-        anim.SetBool("isJumping", false);
     }
     void SetCameraBackgroundPosition(){
         cameraGO.transform.position = new Vector3(transform.position.x, cameraGO.transform.position.y, cameraGO.transform.position.z);
