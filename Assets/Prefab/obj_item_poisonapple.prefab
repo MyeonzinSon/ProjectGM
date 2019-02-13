@@ -121,4 +121,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   hungryChange: -30
-  temperatureChange: -10
+  temperatureChange: -30
