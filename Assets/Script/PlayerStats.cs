@@ -74,7 +74,7 @@ public class PlayerStats{
         foreach (var inventory in inventories){
             if (inventory.type == type){
                 inventory.num--;
-                InventoUI.UpdateUI();
+                InventoryUI.UpdateUI();
                 return true;
             }
         }
